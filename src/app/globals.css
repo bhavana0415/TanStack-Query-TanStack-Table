@@ -2,20 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  @apply bg-background text-foreground min-h-screen;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #9ae6fb;
+    --foreground: #092635;
+    --customColorTwo: #95d2b3;
+    --customColorThree: #d8efd3;
+    --customColorFour: #007e81;
+  }
+
+  .dark {
+    --background: #092635;
+    --foreground: #9ae6fb;
+    --customColorTwo: #1b4242;
+    --customColorThree: #5c8374;
+    --customColorFour: #9ec8b9;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-background {
+    background-color: var(--background);
+  }
+
+  .bg-backgroundReverse {
+    background-color: var(--foreground);
+  }
+
+  .text-foreground {
+    color: var(--foreground);
+  }
+
+  .text-foregroundReverse {
+    color: var(--background);
+  }
+
+  .bg-customColorOne {
+    background-color: var(--customColorOne);
+  }
+
+  .bg-customColorTwo {
+    background-color: var(--customColorTwo);
+  }
+
+  .bg-customColorThree {
+    background-color: var(--customColorThree);
+  }
+
+  .bg-customColorFour {
+    background-color: var(--customColorFour);
+  }
+
+  .hover\\:translate-y-1:hover {
+    transform: translateY(0.25rem);
+  }
+
+  .hover\\:scale-105:hover {
+    transform: scale(1.05);
+  }
+
+  .hover\\:bg-slate-600:hover {
+    background-color: #475569;
+  }
+
+  .hover\\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
 }
